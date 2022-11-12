@@ -13,7 +13,7 @@ class Cliente(Persona):
         unique_together = ['nombre', 'apellido']
     
     def __str__(self):
-        return "%s - %s" % (self.nit, self.nombre_comercial)
+        return "%s - %s" % (self.nit, self.nombre)
 
 class TelefonoCliente(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
