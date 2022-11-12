@@ -3,7 +3,7 @@ from persona.models import Persona, TipoTelefono
 
 # Create your models here.
 class Cliente(Persona):
-    nit = models.CharField('NIT', max_length=10, unique=True, null=True, blank=True, default='C/F')
+    nit = models.CharField('NIT', max_length=10, null=True, blank=True, default='C/F')
     favorito = models.BooleanField(default=True)
 
     class Meta():
