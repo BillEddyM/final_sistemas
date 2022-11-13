@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from import_export.admin import ExportActionMixi
+
 
 class TelefonoClienteInline(admin.TabularInline):
     model = TelefonoCliente
@@ -8,7 +8,7 @@ class TelefonoClienteInline(admin.TabularInline):
     autocomplete_fields = ['tipo'] #BUSQUEDA SOBRE EL CAMPO
 
 
-class ClienteAdmin(ImportExportMixin, admin.ModelAdmin):
+class ClienteAdmin(admin.ModelAdmin):
     inlines = [TelefonoClienteInline] #Detalles
     search_fields = ['nombre', 'apellido', 'nit', 'favorito']
     list_filter = ['genero', 'nit', 'favorito', ]
