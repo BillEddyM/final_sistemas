@@ -1,15 +1,18 @@
 from django.contrib import admin
 from .models import *
+from import_export.admin import ExportActionMixi
 
 class TelefonoClienteInline(admin.TabularInline):
     model = TelefonoCliente
     extra = 0
     autocomplete_fields = ['tipo'] #BUSQUEDA SOBRE EL CAMPO
 
-class ClienteAdmin(admin.ModelAdmin):
+
+class ClienteAdmin(ImportExportMixin, admin.ModelAdmin):
     inlines = [TelefonoClienteInline] #Detalles
     search_fields = ['nombre', 'apellido', 'nit', 'favorito']
-    list_filter = ['genero', 'nit', 'favorito']
+    list_filter = ['genero', 'nit', 'favorito', ]
+    date_hierarchy = 'fecha_nacimiento'
     list_display = ['id', 'nombre', 'apellido', 'genero', 'edad', 'nit', 'favorito']
 
 

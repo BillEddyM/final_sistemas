@@ -9,7 +9,6 @@ GENDER_CHOISES = (
 class Persona(models.Model):
     nombre = models.CharField('nombre', max_length=50)
     apellido = models.CharField('apellido', max_length=50)
-
     genero = models.CharField('genero', max_length=1, choices=GENDER_CHOISES, default='M')
     fecha_nacimiento = models.DateField('fecha nacimiento')
     correo = models.CharField('correo', max_length=50)
